@@ -8,16 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>converter</title>
+    <title>Dictionary</title>
 </head>
 <body>
-<h2>Currency Converter</h2>
-<form action="/result" method="get">
-    <label>Rate: </label><br/>
-    <input type="text" name="rate" placeholder="RATE" value="22000"/><br/>
-    <label>USD: </label><br/>
-    <input type="text" name="usd" placeholder="USD" value="0"/><br/>
-    <input type = "submit" id = "submit" value = "Converter"/>
+<h2>Vietnamese Dictionary</h2>
+<form action="/result" >
+    <input type="text" name="txtSearch" placeholder="Enter your word: "/>
+    <input type = "submit" id = "submit" value = "Search"/>
 </form>
 </body>
 </html>

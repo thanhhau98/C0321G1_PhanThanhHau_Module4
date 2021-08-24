@@ -16,7 +16,7 @@ public class CondimentsController {
     }
 
     @PostMapping ("/save")
-    public String save(@RequestParam("condiments") String[] condiments , Model model ){
+    public String save(@RequestParam( name = "condiments") String[] condiments , Model model ){
         model.addAttribute("condiments" , condiments);
         return "result";
     }

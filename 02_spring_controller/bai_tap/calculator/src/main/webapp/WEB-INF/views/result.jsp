@@ -12,8 +12,7 @@
     <title>Result</title>
 </head>
 <body>
-<h1>Rate : ${rate}</h1>
-<h1>USD : ${usd}</h1>
-<h1>VND : ${vnd}</h1>
+<h3>Result:</h3>
+<c.out>${result}</c.out>
 </body>
 </html>

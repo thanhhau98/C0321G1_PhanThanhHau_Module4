@@ -14,16 +14,16 @@
 </head>
 <body>
 <h2>Sandwich Condiments</h2>
-<form:form action="/save" method="post">
-    <table>
-        <tr>
-            <td><form:label path="condiment">Condiment</form:label></td>
-            <td>
-                <form:checkboxes items="${condiments}"
-                                 path="condiment" />
-            </td>
-        </tr>
-    </table>
-</form:form>
+<form action="/save" method="post">
+    <label>Lettuce</label>
+    <input type="checkbox" name="condiments" value="lettuce">
+    <label>Tomato</label>
+    <input type="checkbox" name="condiments" value="tomato">
+    <label>Mustard</label>
+    <input type="checkbox" name="condiments" value="mustard">
+    <label>Sprouts</label>
+    <input type="checkbox" name="condiments" value="sprouts">
+    <input type="submit" value="Save">
+</form>
 </body>
 </html>

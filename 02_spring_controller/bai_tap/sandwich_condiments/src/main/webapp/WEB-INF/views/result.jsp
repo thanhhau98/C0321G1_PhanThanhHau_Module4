@@ -12,8 +12,10 @@
     <title>Result</title>
 </head>
 <body>
-<h1>Rate : ${rate}</h1>
-<h1>USD : ${usd}</h1>
-<h1>VND : ${vnd}</h1>
+<h1>Sandwich Condiments</h1>
+<c:forEach items="condiments" var="condiment">
+    <h1>${condiment}</h1>
+</c:forEach>
+<h1></h1>
 </body>
 </html>

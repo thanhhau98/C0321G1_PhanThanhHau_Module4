@@ -16,6 +16,5 @@
 <c:forEach items="${condiments}" var="condiment">
     <h1>${condiment}</h1>
 </c:forEach>
-<h1></h1>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 public class Information {
     private String hoTen;

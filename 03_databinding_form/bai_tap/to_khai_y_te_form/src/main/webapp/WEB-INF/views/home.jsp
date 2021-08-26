@@ -10,56 +10,100 @@
 <html>
 <head>
     <title>Email</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h2 style="text-align: center">TỜ KHAI Y TẾ</h2>
-<h3>ĐÂY LÀ TÀI LIỆU QUAN TRỌNG, THÔNG TIN CỦA ANH/CHỊ SẼ GIÚP CƠ QUAN Y TẾ LIÊN LẠC KHI CẦN THIẾT ĐỂ PHÒNG CHỐNG DỊCH BỆNH TRUYỀN NHIỄM</h3>
-<form:form action="update" method="post" modelAttribute="email">
-    <fieldset>
-        <legend>Settings</legend>
-        <table>
-            <tr>
-                <td><form:label path="language">languages: </form:label></td>
-                <td>
-                    <form:select path="language">
-                    <form:option value="English">English</form:option>
-                    <form:option value="Vietnamese">Vietnamese</form:option>
-                    <form:option value="Japanese">Japanese</form:option>
-                    <form:option value="Chinese">Chinese</form:option>
-                    </form:select>
-                </td>
-            </tr>
-            <tr>
-                <td><form:label path="pageSize">Page Size:</form:label></td>
-                <td>Show
-                    <form:select path="pageSize" >
-                        <form:option value="5">5</form:option>
-                        <form:option value="10">10</form:option>
-                        <form:option value="15">15</form:option>
-                        <form:option value="25">25</form:option>
-                        <form:option value="50">50</form:option>
-                        <form:option value="100">100</form:option>
-                    </form:select>
-                    emails per page
-                </td>
-            </tr>
-            <tr>
-                <td><form:label path="spamsFilter">Spams Filter:</form:label></td>
-                <td><form:checkbox value="true" path="spamsFilter"></form:checkbox> Enale spams filter</td>
-            </tr>
+<h3 style="text-align: center">ĐÂY LÀ TÀI LIỆU QUAN TRỌNG, THÔNG TIN CỦA ANH/CHỊ SẼ GIÚP CƠ QUAN Y TẾ LIÊN LẠC KHI CẦN
+    THIẾT ĐỂ PHÒNG CHỐNG DỊCH BỆNH TRUYỀN NHIỄM</h3>
+<h4 style="text-align: center;color: red">Khuyến cáo: Khai báo thông tin sai là vi phạm pháp luật Việt Nam và có thể xử
+    lý hình sự</h4>
+<form:form action="update" method="post" modelAttribute="information">
+    <table>
+        <tr>
+            <td > <form:label path="hoTen">Họ tên(ghi chữ IN HOA): </form:label> </td>
+            <td >
+                <form:input path="hoTen"></form:input>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><form:label path="namSinh">Năm sinh<span>(*)</span>: </form:label></td>
+            <td colspan="2"><form:label path="gioiTinh">Giới tính<span>(*)</span>: </form:label></td>
+            <td colspan="2"><form:label path="quocTich">Quốc tịch<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="2"><form:input path="namSinh"></form:input></td>
+            <td colspan="2"><form:input path="gioiTinh"></form:input></td>
+            <td colspan="2"><form:input path="quocTich"></form:input></td>
+        </tr>
+        <tr>
+            <td colspan="6"><form:label path="cmnd">Số hộ chiếu hoặc số CMND hoặc giấy thông hành hợp pháp khác<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form:input path="cmnd"></form:input>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6"><form:label path="phuongTien">Thông tin đi lại<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form:radiobutton path="cmnd" value="1"></form:radiobutton> Tàu bay
+                <form:radiobutton path="cmnd" value="2"></form:radiobutton> Tàu thuyền
+                <form:radiobutton path="cmnd" value="3"></form:radiobutton> Ô tô
+                <form:radiobutton path="cmnd" value="4"></form:radiobutton> Khác (Ghi rõ)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><form:label path="ngayKhoiHanh">Ngày khời hành<span>(*)</span>: </form:label></td>
+            <td colspan="3"><form:label path="ngayKetThuc">Ngày kết thúc<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="2"><form:input path="ngayKhoiHanh"></form:input></td>
+            <td colspan="2"><form:input path="ngayKetThuc"></form:input></td>
+        </tr>
+        <tr>
+            <td colspan="6"><form:label path="thanhPho">Trong 14 ngày qua, Anh/Chị có đến tỉnh/thành phố nào ?<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form:input path="thanhPho"></form:input>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6"><form:label path="diaChi">Địa chỉ liên lạc<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form:input path="diaChi"></form:input>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6"><form:label path="dauHieu">Trong 14 ngày qua, Anh/Chị có thấy xuất hiện dấu hiệu nào sau đây không?<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form:input path="dauHieu"></form:input>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6"><form:label path="lichSu">Lịch sử phơi nhiễm: Trong vòng 14 ngày qua , Anh/Chị có<span>(*)</span>: </form:label></td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form:input path="lichSu"></form:input>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="GỬI TỜ KHAI"></td>
+        </tr>
 
-            <tr>
-                <td><form:label path="signature">Signature:</form:label></td>
-                <td><form:textarea path="signature"></form:textarea></td>
-            </tr>
-
-            <tr>
-                <td><input type="submit" value="Update"></td>
-                <td><input type="submit" value="Cancel"></td>
-            </tr>
-
-        </table>
-    </fieldset>
+    </table>
 </form:form>
 </body>
 </html>

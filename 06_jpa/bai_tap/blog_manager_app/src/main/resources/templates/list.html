@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Blogs</h3>
+<p>
+  <a th:href="@{/create}">
+    Add new Blog
+  </a>
+</p>
+<form action="/search" method="get">
+  <input type="text" name="search-name" style="width:200px">
+  <input type="text" name="search-price1" style="width:200px">
+  <input type="text" name="search-price2" style="width:200px">
+  <button type="submit" value="search">Search</button>
+</form>
+<div class="notify">
+<!--  /*@thymesVar id="success" type="com"*/-->
+  <div th:if="${success}">
+    <span th:text="${success}"></span>
+  </div>
+</div>
+<table id = "products">
+  <thead>
+  <tr>
+    <th>Header Context</th>
+    <th>Context</th>
+    <th>Date Blog</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="blog ,rowStat : ${blogs}">
+    <td th:text="${blog.headerContext}"></td>
+    <td th:text="${blog.context}"></td>
+    <td th:text="${blog.dateBlog}"></td>
+    <td><a th:href="@{/edit/{id}(id=${blog.id})}">Edit</a></td>
+    <td><a th:href="@{/delete/{id}(id=${blog.id})}">Delete</a></td>
+    <td><a th:href="@{/view/{id}(id=${blog.id})}">View</a></td>
+  </tr>
+  </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

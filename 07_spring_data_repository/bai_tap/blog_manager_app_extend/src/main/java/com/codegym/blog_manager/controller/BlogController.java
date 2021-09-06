@@ -19,10 +19,10 @@ import java.util.Optional;
 public class BlogController {
 
     @Autowired
-    IBlogService blogService;
+    private IBlogService blogService;
 
     @Autowired
-    ICategoryService categoryService;
+    private ICategoryService categoryService;
 
     @GetMapping("")
     public ModelAndView listBlog(

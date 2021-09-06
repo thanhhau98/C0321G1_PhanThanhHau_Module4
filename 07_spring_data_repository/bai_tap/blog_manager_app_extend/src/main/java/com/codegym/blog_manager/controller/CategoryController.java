@@ -17,10 +17,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class CategoryController {
 
     @Autowired
-    ICategoryService categoryService;
+    private ICategoryService categoryService;
 
     @Autowired
-    IBlogService blogService;
+    private IBlogService blogService;
 
     @GetMapping("")
     public ModelAndView listCategory(

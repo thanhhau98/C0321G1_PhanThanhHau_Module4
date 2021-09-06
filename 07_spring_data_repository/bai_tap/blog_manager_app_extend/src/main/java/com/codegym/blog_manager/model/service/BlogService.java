@@ -13,7 +13,7 @@ import java.util.List;
 public class BlogService implements IBlogService {
 
     @Autowired
-    IBlogRepository blogRepository;
+    private IBlogRepository blogRepository;
 
     @Override
     public Page<Blog> findAllByHeaderContextContaining(String headerContext, Pageable pageable) {

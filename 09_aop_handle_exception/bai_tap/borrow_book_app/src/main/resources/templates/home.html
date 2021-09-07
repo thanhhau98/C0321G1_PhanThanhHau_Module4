@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Books</h3>
+<p>
+    <a th:href="@{/borrow}">
+        Borrow Book
+    </a>
+</p>
+<p>
+    <a th:href="@{/return}">
+        Return Book
+    </a>
+</p>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

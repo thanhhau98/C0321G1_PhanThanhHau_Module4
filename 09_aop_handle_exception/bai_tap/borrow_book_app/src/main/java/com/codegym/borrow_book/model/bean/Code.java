@@ -6,7 +6,6 @@ import javax.persistence.*;
 public class Code {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int code ;
 
     @ManyToOne(targetEntity = Book.class)

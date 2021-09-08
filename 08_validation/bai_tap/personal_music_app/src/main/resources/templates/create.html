@@ -2,31 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<h3>Add Blog</h3>
+<h3>Add Song</h3>
 <p>
     <a th:href="@{/}">
-        Back list Blog
+        Back list Song
     </a>
 </p>
 
 <div id="form">
-    <form th:action="@{/create}" th:object="${blog} "
+    <form th:action="@{/create}" th:object="${song} "
           method="POST" novalidate="novalidate">
         <div>
-            <label>Header Context:</label>
-            <input type="text" th:field="*{headerContext}"/>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}"/>
+            <p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
         </div>
         <div>
-            <label>Context:</label>
-            <input type="text" th:field="*{context}"/>
+            <label>Singer:</label>
+            <input type="text" th:field="*{singer}"/>
+            <p style="color: red" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}">Name Error</p>
         </div>
         <div>
-            <label>Date Blog:</label>
-            <input type="text" th:field="*{dateBlog}"/>
-        </div>
-        <div>
-            <label>Categorys:</label>
-            <input type="checkbox" th:each="category:${categorys}" th:text="${category.name}" th:value="${category.id}" th:field="*{dateBlog}"/>
+            <label>Kind Of Music:</label>
+            <input type="text" th:field="*{kindOfMusic}"/>
+            <p style="color: red" th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}">Name Error</p>
         </div>
         <input type="submit" value="Create"/>
     </form>

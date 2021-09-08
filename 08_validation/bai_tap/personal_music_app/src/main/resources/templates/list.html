@@ -6,15 +6,15 @@
 <h3>Blogs</h3>
 <p>
   <a th:href="@{/create}">
-    Add new Blog
+    Add new Song
   </a>
 </p>
-<form action="/search" method="get">
-  <input type="text" name="search" style="width:200px">
-<!--  <input type="text" name="search-price1" style="width:200px">-->
-<!--  <input type="text" name="search-price2" style="width:200px">-->
-  <button type="submit" value="search">Search</button>
-</form>
+<!--<form action="/search" method="get">-->
+<!--  <input type="text" name="search" style="width:200px">-->
+<!--&lt;!&ndash;  <input type="text" name="search-price1" style="width:200px">&ndash;&gt;-->
+<!--&lt;!&ndash;  <input type="text" name="search-price2" style="width:200px">&ndash;&gt;-->
+<!--  <button type="submit" value="search">Search</button>-->
+<!--</form>-->
 <div class="notify">
 <!--  /*@thymesVar id="success" type="com"*/-->
   <div th:if="${success}">
@@ -24,33 +24,25 @@
 <table id = "products">
   <thead>
   <tr>
-    <th>Header Context</th>
-    <th>Context</th>
-    <th>Date Blog</th>
-    <th>Categorys</th>
+    <th>Name</th>
+    <th>Singer</th>
+    <th>Kind Of Music</th>
     <th>Edit</th>
-    <th>Delete</th>
-    <th>View</th>
   </tr>
   </thead>
   <tbody>
-  <tr th:each="blog ,rowStat : ${blogs}">
-    <td th:text="${blog.headerContext}"></td>
-    <td th:text="${blog.context}"></td>
-    <td th:text="${blog.dateBlog}"></td>
-    <td>
-      <label th:each="category:${categorys}" th:text="${category.name} + ' '" ></label>
-    </td>
-    <td><a th:href="@{/edit/{id}(id=${blog.id})}">Edit</a></td>
-    <td><a th:href="@{/delete/{id}(id=${blog.id})}">Delete</a></td>
-    <td><a th:href="@{/view/{id}(id=${blog.id})}">View</a></td>
+  <tr th:each="song ,rowStat : ${songs}">
+    <td th:text="${song.name}"></td>
+    <td th:text="${song.singer}"></td>
+    <td th:text="${song.kindOfMusic}"></td>
+    <td><a th:href="@{/edit/{id}(id=${song.id})}">Edit</a></td>
   </tr>
   </tbody>
 </table>
 <div>
-  <a th:href="@{'/'(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">Previous</a>
-  <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
-  <a th:href="@{'/'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
+  <a th:href="@{'/'(page=${songs.number - 1})}" th:if="${songs.hasPrevious()}">Previous</a>
+  <span th:text="${songs.number + 1}"></span>/<span th:text="${songs.totalPages}"></span>
+  <a th:href="@{'/'(page=${songs.number + 1})}" th:if="${songs.hasNext()}">Next</a>
 </div>
 <footer th:replace="/layout :: footer"></footer>
 </body>

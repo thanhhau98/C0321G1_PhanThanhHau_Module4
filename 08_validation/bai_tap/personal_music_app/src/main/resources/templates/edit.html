@@ -2,31 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<h3>Edit Blog</h3>
+<h3>Edit Song</h3>
 <p>
   <a th:href="@{/}">
-    Back list Blog
+    Back list Song
   </a>
 </p>
 <div id="form">
-  <form action="#" th:action="@{/update}" th:object="${blog}"
+  <form action="#" th:action="@{/update}" th:object="${song}"
         method="POST" novalidate="novalidate">
     <input type="hidden" th:field="*{id}"/>
     <div>
-      <label>Header Context:</label>
-      <input type="text" th:field="*{headerContext}"/>
+      <label>Name:</label>
+      <input type="text" th:field="*{name}"/>
     </div>
     <div>
-      <label>Context:</label>
-      <input type="text" th:field="*{context}"/>
+      <label>Singer:</label>
+      <input type="text" th:field="*{singer}"/>
     </div>
     <div>
-      <label>Date Blog:</label>
-      <input type="text" th:field="*{dateBlog}"/>
-    </div>
-    <div>
-      <label>Categorys:</label>
-      <input type="checkbox" th:each="category:${categorys}" th:text="${category.name}" th:value="${category.id}" th:field="*{dateBlog}"/>
+      <label>Kind Of Music:</label>
+      <input type="text" th:field="*{kindOfMusic}"/>
     </div>
     <input type="submit" value="Update"/>
   </form>

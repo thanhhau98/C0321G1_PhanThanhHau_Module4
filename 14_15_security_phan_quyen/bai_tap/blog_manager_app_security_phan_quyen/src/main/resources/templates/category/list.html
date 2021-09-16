@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Categorys</h3>
+<p>
+  <a th:href="@{/category/create}">
+    Add new Category
+  </a>
+</p>
+
+<div class="notify">
+<!--  /*@thymesVar id="success" type="com"*/-->
+  <div th:if="${success}">
+    <span th:text="${success}"></span>
+  </div>
+</div>
+<table id = "products">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Blogs</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="category ,rowStat : ${categorys}">
+    <td th:text="${category.name}"></td>
+    <td>
+      <label th:each="blog:${blogs}" th:text="${blog.headerContext} + ' '" ></label>
+    </td>
+    <td><a th:href="@{/category/edit/{id}(id=${category.id})}">Edit</a></td>
+    <td><a th:href="@{/category/delete/{id}(id=${category.id})}">Delete</a></td>
+    <td><a th:href="@{/category/view/{id}(id=${category.id})}">View</a></td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  <a th:href="@{'/category/'(page=${categorys.number - 1})}" th:if="${categorys.hasPrevious()}">Previous</a>
+  <span th:text="${categorys.number + 1}"></span>/<span th:text="${categorys.totalPages}"></span>
+  <a th:href="@{'/category/'(page=${categorys.number + 1})}" th:if="${categorys.hasNext()}">Next</a>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
